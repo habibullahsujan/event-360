@@ -37,7 +37,7 @@ const getEventServiceController = (0, asyncOperation_1.asyncOperation)((req, res
 }));
 const updateEventServiceController = (0, asyncOperation_1.asyncOperation)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const data = req.body.data;
+    const data = req.body;
     const result = yield eventServices_services_1.eventServicesService.updateEventServiceServices(id, data);
     (0, response_1.default)(res, {
         success: true,

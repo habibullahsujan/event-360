@@ -37,7 +37,7 @@ const getEventController = (0, asyncOperation_1.asyncOperation)((req, res) => __
 }));
 const updateEventController = (0, asyncOperation_1.asyncOperation)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const data = req.body.data;
+    const data = req.body;
     const result = yield events_services_1.eventServices.updateEventService(id, data);
     (0, response_1.default)(res, {
         success: true,
@@ -60,5 +60,5 @@ exports.eventController = {
     createEventController,
     getEventController,
     updateEventController,
-    deleteEventController
+    deleteEventController,
 };

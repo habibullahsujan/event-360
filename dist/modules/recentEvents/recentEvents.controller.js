@@ -37,7 +37,7 @@ const getRecentEventController = (0, asyncOperation_1.asyncOperation)((req, res)
 }));
 const updateRecentEventController = (0, asyncOperation_1.asyncOperation)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    const data = req.body.data;
+    const data = req.body;
     const result = yield recentEvents_services_1.recentEventServices.updateRecentEventsServices(id, data);
     (0, response_1.default)(res, {
         success: true,
@@ -60,5 +60,5 @@ exports.recentEventController = {
     createRecentEventController,
     getRecentEventController,
     updateRecentEventController,
-    deleteRecentEventsController
+    deleteRecentEventsController,
 };
