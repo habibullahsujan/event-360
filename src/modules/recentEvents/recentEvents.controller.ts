@@ -33,8 +33,11 @@ const getRecentEventController = asyncOperation(
 const updateRecentEventController = asyncOperation(
   async (req: Request, res: Response) => {
     const { id } = req.params;
-    const data = req.body.data;
-    const result = await recentEventServices.updateRecentEventsServices(id, data);
+    const data = req.body;
+    const result = await recentEventServices.updateRecentEventsServices(
+      id,
+      data
+    );
     response(res, {
       success: true,
       message: "event update successfull.",
@@ -44,19 +47,21 @@ const updateRecentEventController = asyncOperation(
   }
 );
 
-const deleteRecentEventsController=asyncOperation(async(req:Request,res:Response)=>{
-  const {id}=req.params;
-  const result = await recentEventServices.deleteRecentEvents(id);
-  response(res, {
-    success: true,
-    message: "event delete successfull.",
-    statusCode: httpStatusCode.OK,
-    data: result,
-  });
-})
+const deleteRecentEventsController = asyncOperation(
+  async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const result = await recentEventServices.deleteRecentEvents(id);
+    response(res, {
+      success: true,
+      message: "event delete successfull.",
+      statusCode: httpStatusCode.OK,
+      data: result,
+    });
+  }
+);
 export const recentEventController = {
   createRecentEventController,
   getRecentEventController,
   updateRecentEventController,
-  deleteRecentEventsController
+  deleteRecentEventsController,
 };

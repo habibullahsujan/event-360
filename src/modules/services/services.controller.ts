@@ -33,7 +33,7 @@ const getEventServiceController = asyncOperation(
 const updateEventServiceController = asyncOperation(
   async (req: Request, res: Response) => {
     const { id } = req.params;
-    const data = req.body.data;
+    const data = req.body;
     const result = await eventServicesService.updateEventServiceServices(
       id,
       data
